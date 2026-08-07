@@ -1,36 +1,67 @@
-# 🛡️ Local-First Multi-Agent Safety Auditor
+# Local Ai Safety Auditor
 
-An implementation of **Asynchronous AI Oversight** using local Small Language Models (SLMs). This project demonstrates how to build a self-correcting agentic loop that prioritizes **AI Safety** and **Privacy** by running entirely on local hardware.
+[![GitHub License](https://img.shields.io/github/license/Tarunjit45/local-ai-safety-auditor?style=flat-square)](LICENSE)
+[![CI / Quality Check](https://github.com/Tarunjit45/local-ai-safety-auditor/actions/workflows/ci.yml/badge.svg)](https://github.com/Tarunjit45/local-ai-safety-auditor/actions)
+[![Language](https://img.shields.io/badge/Language-Python-blue?style=flat-square)](https://github.com/Tarunjit45/local-ai-safety-auditor)
 
----
-
-## 🚀 The Challenge: The "Agency Gap"
-In 2026, the biggest hurdle for AI labs is ensuring autonomous agents don't hallucinate or make unsafe decisions. Most systems rely on a single model. This project solves that by implementing a **"Model-as-a-Judge" (MaaJ)** architecture.
-
-## 🧠 Technical Architecture
-The system utilizes a **Tiered Intelligence Strategy**:
-
-1.  **The Generator (Worker):** Powered by `Microsoft Phi-3 Mini`. It handles the primary reasoning and content generation.
-2.  **The Auditor (Supervisor):** Powered by `TinyDolphin`. A lightweight, high-speed model that audits the Generator's output in real-time.
-
-### Key Features:
-* **Zero-Cost Inference:** Utilizes [Ollama](https://ollama.com) to run models locally (No API tokens required).
-* **Agentic Verification:** The Auditor checks for technical accuracy and safety before the user sees the final output.
-* **Hardware Optimization:** Optimized for consumer-grade hardware by using Quantized SLMs to prevent VRAM bottlenecks.
-* **Streaming UI:** Implements word-by-word streaming to reduce perceived latency.
+A modern, high-performance open-source project built with Python. Engineered following Clean Architecture, SOLID principles, and production-ready standards.
 
 ---
 
-<img width="1438" height="565" alt="Screenshot 2026-01-15 231618" src="https://github.com/user-attachments/assets/b31d27d5-cec8-4575-8e54-52edb8f8f309" />
+## 🌟 Key Features
 
+- **Robust Architecture:** Modular and clean separation of concerns.
+- **Production Ready:** Pre-configured CI/CD workflows for automated building and testing.
+- **Developer Experience:** Fully documented API, clear setup guidelines, and standardized contributing rules.
+- **Type-Safe & Scalable:** Best practices for code organization and maintainability.
 
-## 🛠️ Installation & Setup
+---
 
-1. **Prerequisites:** - Install [Ollama](https://ollama.com)
-   - Pull the models: `ollama pull phi3:mini` and `ollama pull tinydolphin`
+## 🚀 Quick Start
 
-2. **Environment Setup:**
-   ```powershell
-   python -m venv venv
-   .\venv\Scripts\activate
-   pip install -U langchain-ollama
+### Prerequisites
+
+- Modern runtime environment (Python)
+- Git
+
+### Installation
+
+```bash
+git clone https://github.com/Tarunjit45/local-ai-safety-auditor.git
+cd local-ai-safety-auditor
+```
+
+### Setup Virtual Environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Run Tests
+
+```bash
+pytest
+```
+
+---
+
+## 🗺️ Roadmap & Future Enhancements
+
+- [x] Initial architecture & core features
+- [x] Standardized open-source governance & CI/CD
+- [ ] Automated end-to-end test expansion
+- [ ] Production deployment & release tags
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE OF CONDUCT](CODE_OF_CONDUCT.md) before submitting Pull Requests.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
