@@ -1,71 +1,59 @@
-# 🚀 local-ai-safety-auditor
+# 🛡️ Local AI Safety Auditor — Asynchronous Dual-SLM Oversight Loop
 
-![Language](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Production-Active-success?style=for-the-badge)
+[![Python](https://img.shields.io/badge/Language-Python%203.12-blue?style=flat-square&logo=python)](https://python.org)
+[![LangChain](https://img.shields.io/badge/Orchestration-LangChain%20Ollama-1C3C3C?style=flat-square&logo=langchain)](https://github.com/langchain-ai/langchain)
+[![Ollama](https://img.shields.io/badge/Local%20Inference-Ollama-white?style=flat-square&logo=ollama)](https://ollama.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 
-## 📌 Overview
+An implementation of **Asynchronous AI Oversight & Safety Verification** running 100% locally on personal hardware using **Small Language Models (SLMs)**. Demonstrates how to build an autonomous self-correcting agent loop that prioritizes user privacy, data security, and zero cloud API dependency.
 
-An implementation of Asynchronous AI Oversight using local Small Language Models (SLMs). This project demonstrates how to build a self-correcting agentic loop that prioritizes AI Safety and Privacy by running entirely on local hardware.
+---
 
-## ✨ Key Features & Architecture
+## 🌟 Key Features
 
-- **High-Performance Codebase:** Built using `Python` and modern engineering principles.
-- **Modular & Scalable Design:** Structured directory tree for seamless development and deployment.
+* **Dual-SLM Architecture:**
+  * 🏃 **Worker Agent (`phi3:mini`):** Streams rapid first-pass answers to user queries with zero latency.
+  * 🕵️ **Auditor Agent (`tinydolphin`):** Simultaneously observes the output stream, verifying factual consistency, safety guidelines, and hallucination risks.
+* **100% On-Device Privacy:** Requires zero external cloud APIs or subscriptions; all tokens are computed on your local CPU/GPU via Ollama.
+* **LangChain Integration:** Leverages `langchain-ollama` streaming primitives for responsive token delivery and oversight.
 
-## 🛠️ Tech Stack & Dependencies
+---
 
-- **Core Language:** `Python`
-- **Libraries & Tools:** Python
-- **Deployment Infrastructure:** Vercel Edge / Cloud Services
+## 📁 Repository Structure
 
-## 📁 Architecture & File Layout
-
-```text
+```
 local-ai-safety-auditor/
-├── .github
-├── .github/ISSUE_TEMPLATE
-├── .github/ISSUE_TEMPLATE/bug_report.md
-├── .github/ISSUE_TEMPLATE/feature_request.md
-├── .github/PULL_REQUEST_TEMPLATE.md
-├── .github/workflows
-├── .github/workflows/ci.yml
-├── .gitignore
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── README.md
-├── auditor.py
-├── requirements.txt
-├── venv
-└── ... [additional codebase files]
+├── auditor.py              # Dual-SLM oversight agent loop & streaming runner
+├── requirements.txt        # Dependencies (langchain-ollama, httpx, aiohttp)
+├── LICENSE                 # MIT License
+└── README.md               # Documentation
 ```
 
-## 🚀 Quickstart & Installation
+---
 
-### Prerequisites
-- Python 3.9+
-- pip package manager
+## 🚀 Quick Start
 
-### Setup Instructions
+### 1. Prerequisites
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Tarunjit45/local-ai-safety-auditor.git
-   cd local-ai-safety-auditor
-   ```
+* Python 3.10+
+* [Ollama](https://ollama.com/) installed and running locally
+* Download the SLM weights:
+  ```bash
+  ollama pull phi3:mini
+  ollama pull tinydolphin
+  ```
 
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 2. Installation & Run
 
-3. **Execute application:**
-   ```bash
-   python main.py
-   ```
+```bash
+git clone https://github.com/Tarunjit45/local-ai-safety-auditor.git
+cd local-ai-safety-auditor
 
-## 📜 Author & License
+pip install -r requirements.txt
+python auditor.py
+```
 
-Architected & Developed by **[Tarunjit Biswas](https://github.com/Tarunjit45)**.  
-Distributed under the **MIT License**.
+---
+
+## 📄 License
+This project is open-source under the [MIT License](LICENSE).
